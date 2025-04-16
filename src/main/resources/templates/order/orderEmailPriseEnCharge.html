@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <title  th:text="#{email.prise.encharge.order}">Prise en charge de commande</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <h1 th:text="'Bonjour ' + ${order.getUser().getLogin()} + ','">Bonjour Client,</h1>
+    <p>Votre commande n°<span th:text="${order.getReference()}">12345</span> est actuellement en cours de traitement.</p>
+    <p>Nos équipes travaillent pour préparer vos articles et assurer une expédition rapide.</p>
+    <p>Vous recevrez une notification dès que votre commande sera expédiée.</p>
+    <p>Merci pour votre patience.</p>
+    <p>Cordialement,</p>
+    <p>L'équipe <span>CPH-FRANCE</span></p>
+  </body>
+</html>

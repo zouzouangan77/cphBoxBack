@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+<head>
+  <title>CPHBOX Résumé de Commande</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    .summary-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .section-title {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .table th, .table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    .table th {
+      background-color: #f7f7f7;
+    }
+    .highlight {
+      color: #d9534f;
+      font-weight: bold;
+    }
+    .text-right {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<div class="summary-container">
+  <h1>Résumé de Commande</h1>
+
+  <!-- Section Détails des Livres Traités -->
+  <div class="section">
+    <div class="section-title">Livres Traités</div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Livre</th>
+        <th>Quantité Récupérée</th>
+        <th>Prix Unitaire</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="orderItem : ${order.getOrderItems()}">
+        <td th:text="${orderItem.boxCatalog.catalog.book}">Livre</td>
+        <td th:text="${orderItem.quantity}">Quantité récupérée</td>
+        <td th:text="${orderItem.boxCatalog.catalog.price} + ' €'">Prix unitaire</td>
+        <td th:text="${orderItem.quantity * orderItem.boxCatalog.catalog.price} + ' €'">Total</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section Détails des Livres Manquants -->
+  <div class="section">
+    <div class="section-title">Livres Manquants</div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Livre</th>
+        <th>Quantité Manquante</th>
+        <th>Raison</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="missingOrderItem : ${missingOrderItems}">
+        <td th:text="${missingOrderItem.book}">Livre</td>
+        <td th:text="${missingOrderItem.missingQuantity}">Quantité manquante</td>
+        <td th:text="${missingOrderItem.reason}">Raison</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section Récapitulatif -->
+  <div class="section">
+    <div class="section-title">Récapitulatif</div>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td class="text-right">Total des Livres Récupérés :</td>
+        <td class="text-right" th:text="${order.getQuantity}"></td>
+      </tr>
+      <tr>
+        <td class="text-right">Montant Total des Livres Récupérés :</td>
+        <td class="text-right" th:text="@{${totalPrice}}+ ' €'"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+  <head>
+    <title th:text="#{email.confirmation.order}">Confirmation de commande</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .order-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+      }
+      h1, h2 {
+        text-align: center;
+        color: #333;
+      }
+      .section {
+        margin-bottom: 20px;
+      }
+      .section-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #555;
+        border-bottom: 1px solid #ddd;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      .table th, .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      .table th {
+        background-color: #f7f7f7;
+        color: #333;
+      }
+      .total-row {
+        font-weight: bold;
+      }
+      .text-right {
+        text-align: right;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1 th:text="'Bonjour ' + ${order.getUser().getLogin()} + ','">Bonjour Client,</h1>
+    <p>Nous vous confirmons que votre commande n°<span th:text="${order.getReference()}">reference</span> a été bien enregistrée.</p>
+
+    <div class="section">
+      <div class="section-title">Info Commande </div>
+      <p>Reference Commande : <span th:text="${order.getReference()}">reference </span></p>
+      <p>Date de Commande : <span th:text="@{${orderDate}}">date</span></p>
+      <p>Type evenement : <span th:text="${order.getEvent().getName()}"></span></p>
+    </div>
+
+    <!-- Section Détails de la Commande -->
+    <div class="section">
+      <div class="section-title">Détails de la Commande</div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Livre</th>
+          <th>Prix unitaire</th>
+          <th>Quantité</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="orderItem : ${order.getOrderItems()}">
+          <td th:utext="${orderItem.boxCatalog.catalog.book}">Livre</td>
+          <td th:utext="${orderItem.boxCatalog.catalog.price }+ ' €'">Prix unitaire</td>
+          <td th:utext="${orderItem.orderItemQuantityInitialWanted}">Quantité</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Voici un récapitulatif :</p>
+    <ul>
+      <li>Total des livres : <span th:text="${order.getOrderQuantityInitialWanted()}">Date</span></li>
+      <li>Montant total des livres : <span th:text="@{${priceTotal}}+ ' €'">Prix</span></li>
+    </ul>
+    <!-- Section Informations du client -->
+    <p>Merci pour votre confiance !</p>
+    <p>Cordialement,</p>
+    <p>L'équipe <span>CPH-FRANCE</span></p>
+  </body>
+</html>

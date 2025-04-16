@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title th:text="#{email.activation.title}">CPHBOX pdf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+    <style>
+          table{
+        border-collapse: collapse
+        }
+
+        th{
+        border: 1px solid black;
+        padding: 5px;
+        width: 100%;
+        }
+        td{
+        border: 1px solid black;
+        padding: 5px;
+        width: 100%;
+        }
+        .tab1 {
+          margin-bottom: 5em;
+          margin-top: 10px;
+
+        }
+        .tab2 {
+          margin-bottom: 5em;
+
+        }
+        .tab3 {
+          margin-bottom: 5em;
+
+        }
+        .tableau{
+
+        }
+
+
+    </style>
+  </head>
+  <body>
+  <div class="tableau">
+    <div class="tab1">
+      <table>
+        <tr>
+          <td> Référence:  <span th:text="${box.getReference()}">ref </span> </td>
+          <td><img th:src="@{${qrCodeImage}}" style="width: 126px; height: 75px" /> </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Titre</th>
+          <th>Langue</th>
+          <th>Quantité</th>
+
+        </tr>
+        <tr th:each="boxCatalog : ${box.getBoxCatalogs()}">
+          <td th:utext="${boxCatalog.catalog.book}">titre</td>
+          <td th:utext="${boxCatalog.catalog.language.name}">langue</td>
+          <td th:utext="${boxCatalog.getNbBookAvailable()}">quantité</td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab2">
+      <table>
+        <tr>
+          <td> Référence:  <span th:text="${box.getReference()}">ref </span> </td>
+          <td><img th:src="@{${qrCodeImage}}" style="width: 126px; height: 75px" /> </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Titre</th>
+          <th>Langue</th>
+          <th>Quantité</th>
+
+        </tr>
+
+        <tr th:each="boxCatalog : ${box.getBoxCatalogs()}">
+          <td th:utext="${boxCatalog.catalog.book}">titre</td>
+          <td th:utext="${boxCatalog.catalog.language.name}">langue</td>
+          <td th:utext="${boxCatalog.getNbBookAvailable()}">quantité</td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab3">
+      <table>
+        <tr>
+          <td> Référence:  <span th:text="${box.getReference()}">ref </span> </td>
+          <td><img th:src="@{${qrCodeImage}}" style="width: 126px; height: 75px" /> </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Titre</th>
+          <th>Langue</th>
+          <th>Quantité</th>
+
+        </tr>
+
+        <tr th:each="boxCatalog : ${box.getBoxCatalogs()}">
+          <td th:utext="${boxCatalog.catalog.book}">titre</td>
+          <td th:utext="${boxCatalog.catalog.language.name}">langue</td>
+          <td th:utext="${boxCatalog.getNbBookAvailable()}">quantité</td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab4">
+      <table>
+        <tr>
+          <td> Référence:  <span th:text="${box.getReference()}">ref </span> </td>
+          <td><img th:src="@{${qrCodeImage}}" style="width: 126px; height: 75px" /> </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Titre</th>
+          <th>Langue</th>
+          <th>Quantité</th>
+
+        </tr>
+
+        <tr th:each="boxCatalog : ${box.getBoxCatalogs()}">
+          <td th:utext="${boxCatalog.catalog.book}">titre</td>
+          <td th:utext="${boxCatalog.catalog.language.name}">langue</td>
+          <td th:utext="${boxCatalog.getNbBookAvailable()}">quantité</td>
+
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <title th:text="#{email.livrer.order}">Commande livrée</title>
+  </head>
+  <body>
+    <h1 th:text="'Bonjour ' + ${order.getUser().getLogin()} + ','">Bonjour Client,</h1>
+    <p>Nous sommes ravis de vous informer que votre commande n°<span th:text="${order.getReference()}">12345</span> a été livrée avec succès.</p>
+    <p>Nous espérons que les articles reçus vous donneront entière satisfaction.</p>
+    <p>N'hésitez pas à nous contacter si vous avez des questions ou des retours.</p>
+    <p>Merci pour votre confiance !</p>
+    <p>Cordialement,</p>
+    <p>L'équipe <span>CPH-FRANCE</span></p>
+  </body>
+</html>

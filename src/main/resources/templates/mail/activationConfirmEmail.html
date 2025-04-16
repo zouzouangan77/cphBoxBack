@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title th:text="#{email.activation.title}">CPHBOX activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <p >Votre compte CPHBOX a bien été activé</p>
+    <p>
+      <a>Lien de connexion</a>
+    </p>
+    <p>
+      <span>Cordialement, </span>
+      <br /><br />
+      <em >Equipe</em>
+    </p>
+  </body>
+</html>

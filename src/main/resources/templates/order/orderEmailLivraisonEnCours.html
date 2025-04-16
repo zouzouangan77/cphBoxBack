@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <title  th:text="#{email.livraison.encours.order}">Commande en cours de livraison</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <h1 th:text="'Bonjour ' +${order.getUser().getLogin()} + ','">Bonjour Client,</h1>
+    <p>Nous avons le plaisir de vous informer que votre commande n°<span th:text="${order.getReference()}">12345</span> a été expédiée.</p>
+    <p>Elle est actuellement en cours de livraison et arrivera bientôt à l'adresse suivante :</p>
+    <p><span th:text="${order.getEvent.getAddress()}">Votre Adresse</span></p>
+    <p>Merci pour votre confiance !</p>
+    <p>Cordialement,</p>
+    <p>L'équipe <span>CPH-FRANCE</span></p>
+  </body>
+</html>

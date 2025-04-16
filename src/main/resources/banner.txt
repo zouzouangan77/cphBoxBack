@@ -1,0 +1,12 @@
+
+ ${AnsiColor.BLUE} ██████╗██████╗ ██╗  ██╗      ${AnsiColor.WHITE}██████╗  ██████╗ ██╗  ██╗      ${AnsiColor.RED}██████╗  █████╗  ██████╗██╗  ██╗
+ ${AnsiColor.BLUE}██╔════╝██╔══██╗██║  ██║      ${AnsiColor.WHITE}██╔══██╗██╔═══██╗╚██╗██╔╝      ${AnsiColor.RED}██╔══██╗██╔══██╗██╔════╝██║ ██╔╝
+ ${AnsiColor.BLUE}██║     ██████╔╝███████║█████╗${AnsiColor.WHITE}██████╔╝██║   ██║ ╚███╔╝ █████╗${AnsiColor.RED}██████╔╝███████║██║     █████╔╝
+ ${AnsiColor.BLUE}██║     ██╔═══╝ ██╔══██║╚════╝${AnsiColor.WHITE}██╔══██╗██║   ██║ ██╔██╗ ╚════╝${AnsiColor.RED}██╔══██╗██╔══██║██║     ██╔═██╗
+ ${AnsiColor.BLUE}╚██████╗██║     ██║  ██║      ${AnsiColor.WHITE}██████╔╝╚██████╔╝██╔╝ ██╗      ${AnsiColor.RED}██████╔╝██║  ██║╚██████╗██║  ██╗
+
+
+${AnsiColor.BRIGHT_BLUE} ${application.name} ${application.version} 🤓
+${AnsiColor.BRIGHT_RED} Running Spring Boot ${spring-boot.version}
+
+
