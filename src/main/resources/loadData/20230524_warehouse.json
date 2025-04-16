@@ -1,7 +1,7 @@
 [
   {
     "name": "Garibaldi",
-    "address": "1 rue benoit malon 76300 Sotteville-les-rouen",
+    "address": "10 Rue des Lilas, 75019 Paris",
     "positions": [
       {
         "name": "A1"
@@ -181,7 +181,7 @@
   },
   {
     "name": "Houilles",
-    "address": "12 impasse de la vallée, 78800 Houilles",
+    "address": "25 Boulevard Haussmann, 75009 Paris",
     "positions": [
       {
         "name": "EMPTY"
@@ -190,7 +190,7 @@
   },
   {
     "name": "Aubergenvillle",
-    "address": "43 avenue de dixmude Aubergenville",
+    "address": "15 Avenue Jean Jaurès, 69007 Lyon",
     "positions": [
       {
         "name": "EMPTY"
@@ -199,7 +199,7 @@
   },
   {
     "name": "Val-de-Saane",
-    "address": "Rue Saint-Gilles, 76890 Val-de-Saâne",
+    "address": "Rue Martin, 76890 Val-de-Salomer",
     "positions": [
       {
         "name": "EMPTY"
